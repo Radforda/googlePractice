@@ -1,4 +1,8 @@
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -13,6 +17,8 @@
 
 
   var provider = new firebase.auth.GoogleAuthProvider();
+  
+ $("signIn").on("click", function(){
   firebase.auth().signInWithPopup(provider).then(function(result) {
   // This gives you a Google Access Token. You can use it to access the Google API.
   var token = result.credential.accessToken;
@@ -29,4 +35,9 @@
   var credential = error.credential;
   // ...
 });
+});
 </script>
+<body>
+<button type="button" id="signIn" >Sign in!</button> 
+
+</body>
